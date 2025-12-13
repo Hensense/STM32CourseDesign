@@ -1,0 +1,34 @@
+foc\dma.o: ../Core/Src/dma.c
+foc\dma.o: ../Core/Inc/dma.h
+foc\dma.o: ../Core/Inc/main.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+foc\dma.o: ../Core/Inc/stm32f1xx_hal_conf.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+foc\dma.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+foc\dma.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
+foc\dma.o: ../Drivers/CMSIS/Include/core_cm3.h
+foc\dma.o: D:\keil5 MDK\ARM\ARMCC\Bin\..\include\stdint.h
+foc\dma.o: ../Drivers/CMSIS/Include/cmsis_version.h
+foc\dma.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+foc\dma.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+foc\dma.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+foc\dma.o: D:\keil5 MDK\ARM\ARMCC\Bin\..\include\stddef.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+foc\dma.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

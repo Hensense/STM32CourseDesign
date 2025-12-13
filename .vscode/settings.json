@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "tim.h": "c",
+    "bldc_motor.h": "c",
+    "usart.h": "c"
+  }
+}
