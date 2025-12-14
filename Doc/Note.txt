@@ -1,0 +1,9 @@
+V1.0 更新详情
+    1.1 MAX30102更新：更换心率血氧计算算法，新增中断标志，优化程序执行效率，优化程序占用空间。
+    1.2 ADC采集优化，采用DMA转运，ADC连续转换扫描模式，连续搬运100条数据，ADC1_CH0~9的数据，ADC_ConvertedValue[0],ADC_ConvertedValue[10]......
+        ,....ADC_ConvertedValue[90]为ADC1_CH0数据，其余类推。
+    1.3 ESP01S驱动文件：新增多模型数据上传函数，优化使用方法。
+    1.4 ESP01S驱动文件 - 重写。
+V1.0 更新详情
+    1.1 PulseSensor心率传感器心率测量 心电图OLED显示。
+    
