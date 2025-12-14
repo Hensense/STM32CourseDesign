@@ -47,3 +47,4 @@
 .\objects\main.o: D:\Keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: .\BSP\Sensor\MFRC522.h
 .\objects\main.o: .\APP\Actuator_Task.h
+.\objects\main.o: .\HardWare\Serial.h

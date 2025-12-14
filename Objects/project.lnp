@@ -31,6 +31,7 @@
 ".\objects\key.o"
 ".\objects\oled.o"
 ".\objects\oled_data.o"
+".\objects\serial.o"
 ".\objects\sys.o"
 ".\objects\task.o"
 ".\objects\adcx.o"

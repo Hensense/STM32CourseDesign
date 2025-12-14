@@ -79,6 +79,9 @@ void Action_OLED_Update(void)
             if(MFRC522_Value.Read_Flag == 0x01 || MFRC522_Value.Read_Flag == 0x02){
                 OLED_Printf(0,0,OLED_8X16,"ID:0x%02X%02X%02X%02X",MFRC522_Value.Read_Id[0],
                     MFRC522_Value.Read_Id[1],MFRC522_Value.Read_Id[2],MFRC522_Value.Read_Id[3]);
+				//MCU通信，使用串口发送当前ID卡号
+				printf("0x%02X%02X%02X%02X\n",MFRC522_Value.Read_Id[0],
+                    MFRC522_Value.Read_Id[1],MFRC522_Value.Read_Id[2],MFRC522_Value.Read_Id[3]);
             }
             else
             {
