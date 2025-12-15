@@ -1878,9 +1878,9 @@
       </Doc>
       <Doc>
         <Name>.\BSP\Sensor\MFRC522.c</Name>
-        <ColumnNumber>21</ColumnNumber>
-        <TopLine>46</TopLine>
-        <CurrentLine>60</CurrentLine>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>26</TopLine>
+        <CurrentLine>36</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

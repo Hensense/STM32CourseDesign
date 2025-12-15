@@ -169,7 +169,7 @@ __IO uint32_t Sensor_TimeCnt = 0;   /* 传感器数据采集任务运行时间 单位为Sensor_T
     };
     static void MFRC522_GetData(void)
     {
-        MFRC522_Value.Read_Flag = MFRC522_ReadCard(&MFRC522_Value.Read_Id[0]);
+        MFRC522_Value.Read_Flag = MFRC522_ReadCard(&MFRC522_Value.Read_Id[0]); //读取一张卡并返回读取状态
     }
     
 #endif

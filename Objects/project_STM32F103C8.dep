@@ -1131,7 +1131,7 @@ I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
 I (D:\Keil5\ARM\ARMCC\include\time.h)(0x60252378)
-F (.\APP\Sensor_Task.c)(0x68C21EDE)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\HardWare -I .\System -I .\User -I .\APP -I .\BSP\Sensor -I .\BSP\Actuator -I .\BSP\Comm -I .\BSP\Extern -I .\DSPLIB -I .\DSPLIB\Include -I .\Middlewares --no-multibyte-chars-I.\RTE\_STM32F103C8-ID:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-ID:\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3 -DSTM32F10X_MD-o .\objects\sensor_task.o --omf_browse .\objects\sensor_task.crf --depend .\objects\sensor_task.d)
+F (.\APP\Sensor_Task.c)(0x693FC92F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\HardWare -I .\System -I .\User -I .\APP -I .\BSP\Sensor -I .\BSP\Actuator -I .\BSP\Comm -I .\BSP\Extern -I .\DSPLIB -I .\DSPLIB\Include -I .\Middlewares --no-multibyte-chars-I.\RTE\_STM32F103C8-ID:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-ID:\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3 -DSTM32F10X_MD-o .\objects\sensor_task.o --omf_browse .\objects\sensor_task.crf --depend .\objects\sensor_task.d)
 I (APP\Sensor_Task.h)(0x693D60D2)
 I (.\User\main.h)(0x68B996E2)
 I (.\System\sys.h)(0x687F4C2A)
@@ -1901,7 +1901,7 @@ I (.\Library\stm32f10x_tim.h)(0x4D783BB4)
 I (.\Library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\Library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\Library\misc.h)(0x4D783BB4)
-F (.\BSP\Sensor\MFRC522.c)(0x68C2B6FC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\HardWare -I .\System -I .\User -I .\APP -I .\BSP\Sensor -I .\BSP\Actuator -I .\BSP\Comm -I .\BSP\Extern -I .\DSPLIB -I .\DSPLIB\Include -I .\Middlewares --no-multibyte-chars-I.\RTE\_STM32F103C8-ID:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-ID:\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3 -DSTM32F10X_MD-o .\objects\mfrc522.o --omf_browse .\objects\mfrc522.crf --depend .\objects\mfrc522.d)
+F (.\BSP\Sensor\MFRC522.c)(0x693F9A1A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\User -I .\HardWare -I .\System -I .\User -I .\APP -I .\BSP\Sensor -I .\BSP\Actuator -I .\BSP\Comm -I .\BSP\Extern -I .\DSPLIB -I .\DSPLIB\Include -I .\Middlewares --no-multibyte-chars-I.\RTE\_STM32F103C8-ID:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-ID:\Keil5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM3 -DSTM32F10X_MD-o .\objects\mfrc522.o --omf_browse .\objects\mfrc522.crf --depend .\objects\mfrc522.d)
 I (BSP\Sensor\MFRC522.h)(0x68C29B50)
 I (.\System\sys.h)(0x687F4C2A)
 I (.\Start\stm32f10x.h)(0x4D783CB4)
