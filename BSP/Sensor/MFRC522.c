@@ -44,7 +44,7 @@ void MFRC522_Init(void)
     
 
 /////////////////////////////////////////////////////////////////////
-//功能描述从MFRC522的某一寄存器读一个字节数据
+//功能描述?〈覯FRC522的某一寄存器读一个字节数据
 //参数说明：Address[IN]:寄存器地址
 //返    回：读出的值
 /////////////////////////////////////////////////////////////////////
@@ -55,14 +55,14 @@ unsigned char Read_MFRC522(unsigned char Address)
 
      MFRC522_SCK_L;
          RC522_DELAY();
-     MFRC522_SDA_L;
+     MFRC522_SDA_L;  //选中，即片选
          RC522_DELAY();
-     ucAddr = ((Address<<1)&0x7E)|0x80;
+     ucAddr = ((Address<<1)&0x7E)|0x80; //寄存器地址左移 1 位，只保留 bit6~bit1，把 bit7 置 1
 
-     for(i=8;i>0;i--)
+     for(i=8;i>0;i--) //发送读寄存器地址字节
      {
              
-         if(ucAddr&0x80)
+         if(ucAddr&0x80)  //检查最高位是1还是0
                  {
                         MFRC522_MOSI_H;
                  }
@@ -71,26 +71,26 @@ unsigned char Read_MFRC522(unsigned char Address)
                         MFRC522_MOSI_L;
                  }
                  RC522_DELAY();
-         MFRC522_SCK_H;
+         MFRC522_SCK_H;   //拉高时钟，这一位有效
                  RC522_DELAY();
-         ucAddr <<= 1;
-         MFRC522_SCK_L;
+         ucAddr <<= 1;    //从高到低地去发送下一位
+         MFRC522_SCK_L;   //时钟拉低，发送结束
                  RC522_DELAY();
      }
 
-     for(i=8;i>0;i--)
+     for(i=8;i>0;i--)  //把数据字节读回来
      {
-         MFRC522_SCK_H;
+         MFRC522_SCK_H; //拉高时钟
              RC522_DELAY();
-         ucResult <<= 1;
-         ucResult|= MFRC522_MISO_READ;
-         MFRC522_SCK_L;
+         ucResult <<= 1; //给结果腾出一位位置
+         ucResult|= MFRC522_MISO_READ;  //读取MISO当前电平，并拼接到res最低位
+         MFRC522_SCK_L;  //时钟拉低，读取结束
              RC522_DELAY();
      }
 
-     MFRC522_SCK_H;
+     MFRC522_SCK_H;  //收尾稳定总线
          RC522_DELAY();
-     MFRC522_SDA_H;
+     MFRC522_SDA_H;  //片选结束，结束传输
          RC522_DELAY();
      return ucResult;
 }
@@ -98,7 +98,7 @@ unsigned char Read_MFRC522(unsigned char Address)
 
 
 /////////////////////////////////////////////////////////////////////
-//功能描述向MFRC522的某一寄存器写一个字节数据
+//功能描述?∠騇FRC522的某一寄存器写一个字节数据
 //参数说明：Address[IN]:寄存器地址
 //          value[IN]:写入的值
 /////////////////////////////////////////////////////////////////////
@@ -108,11 +108,11 @@ void Write_MFRC522(unsigned char Address, unsigned char value)
 
     MFRC522_SCK_L;
     MFRC522_SDA_L;
-    ucAddr = ((Address<<1)&0x7E);
+    ucAddr = ((Address<<1)&0x7E); //寄存器地址左移 1 位，只保留 bit6~bit1，bit7此时为0
 
-    for(i=8;i>0;i--)
+    for(i=8;i>0;i--) //发送地址控制字节
     {
-        if(ucAddr&0x80)
+        if(ucAddr&0x80)  //取最高位
         {
             MFRC522_MOSI_H;
         }
@@ -121,16 +121,16 @@ void Write_MFRC522(unsigned char Address, unsigned char value)
             MFRC522_MOSI_L;
         }
         RC522_DELAY();
-        MFRC522_SCK_H;
+        MFRC522_SCK_H; //拉高时钟，此位有效
         RC522_DELAY();
-        ucAddr <<= 1;
-        MFRC522_SCK_L;
+        ucAddr <<= 1; //准备下一位
+        MFRC522_SCK_L; //结束发送
         RC522_DELAY();
     }
 
     for(i=8;i>0;i--)
     {
-        if(value&0x80)
+        if(value&0x80) //每次取value的最高位
         {
             MFRC522_MOSI_H;
         }
@@ -139,16 +139,16 @@ void Write_MFRC522(unsigned char Address, unsigned char value)
             MFRC522_MOSI_L;
         }
         RC522_DELAY();
-        MFRC522_SCK_H;
+        MFRC522_SCK_H; //时钟拉高，此位有效
         RC522_DELAY();
-        value <<= 1;
-        MFRC522_SCK_L;
+        value <<= 1;  //准备下一位
+        MFRC522_SCK_L; //结束发送
         RC522_DELAY();
     }
 
-    MFRC522_SCK_H;
+    MFRC522_SCK_H; //收尾稳定总线
     RC522_DELAY();
-    MFRC522_SDA_H;
+    MFRC522_SDA_H; //片选结束
     RC522_DELAY();
 }
 
@@ -159,30 +159,31 @@ void Write_MFRC522(unsigned char Address, unsigned char value)
 /////////////////////////////////////////////////////////////////////
 char MFRC522_Reset(void) 
 {
-    uint8_t retry = 10;
+    uint8_t retry = 10;                  /* 软复位后等待芯片就绪的重试次数 */
     //unsigned char i;
-    MFRC522_RST_H;
-    delay_us (1);             
-    MFRC522_RST_L;
-    delay_us (1);                         
-    MFRC522_RST_H;
-    delay_us (1);            
+    MFRC522_RST_H;                       /* RST先拉高：保持非复位状态 */
+    delay_us (1);                        /* 稍作延时，保证电平稳定 */
+    MFRC522_RST_L;                       /* RST拉低：触发硬复位脉冲 */
+    delay_us (1);                        /* 保持一小段时间 */
+    MFRC522_RST_H;                       /* RST再拉高：结束硬复位 */
+    delay_us (1);                        /* 让芯片从复位状态恢复 */
 
     //MFRC522_RST_H;
-    Write_MFRC522(CommandReg,0x0F); //soft reset
-    while((Read_MFRC522(CommandReg) & 0x10) && (retry--)); //wait chip start ok
+    Write_MFRC522(CommandReg,0x0F);       /* Soft Reset：写CommandReg=0x0F */
+    while((Read_MFRC522(CommandReg) & 0x10) && (retry--)); /* 等待PowerDown位清零，表示芯片启动完成 */
 
-    delay_us (1);            
+    delay_us (1);                        /* 再延时一点，避免紧接着配置寄存器 */
 
 
-    Write_MFRC522(ModeReg,0x3D);            //和Mifare卡通讯，CRC初始值0x6363
-    Write_MFRC522(TReloadRegL,30);           
-    Write_MFRC522(TReloadRegH,0);
-    Write_MFRC522(TModeReg,0x8D);
-    Write_MFRC522(TPrescalerReg,0x3E);
-    Write_MFRC522(TxAutoReg,0x40);
+    Write_MFRC522(ModeReg,0x3D);            /* 通讯模式设置：CRC初始值0x6363（Mifare卡要求） */
+    Write_MFRC522(TReloadRegL,30);          /* 定时器重装载值低字节 */
+    Write_MFRC522(TReloadRegH,0);           /* 定时器重装载值高字节 */
+    Write_MFRC522(TModeReg,0x8D);           /* 定时器模式配置 */
+    Write_MFRC522(TPrescalerReg,0x3E);      /* 定时器分频配置 */
+    Write_MFRC522(TxAutoReg,0x40);          /* 自动发射/调制相关配置（常见默认值） */
     return MI_OK;
 }
+
 
 /////////////////////////////////////////////////////////////////////
 //功    能：置RC522寄存器位
@@ -332,8 +333,8 @@ void MFRC522_AntennaOff(void)
 }
 
 
-//功能描述用MF522计算CRC
-//输入参数pIndata--要读数CRC的数据len--数据长度pOutData--计算的CRC结果
+//功能描述?⒂肕F522计算CRC
+//输入参数??pIndata--要读数CRC的数据??len--数据长度??pOutData--计算的CRC结果
 void CalulateCRC(unsigned char *pIndata,unsigned char len,unsigned char *pOutData)
 {
     unsigned char i,n;
@@ -359,7 +360,7 @@ void CalulateCRC(unsigned char *pIndata,unsigned char len,unsigned char *pOutDat
 //功    能：命令卡片进入休眠状态
 //返    回: 成功返回MI_OK
 /////////////////////////////////////////////////////////////////////
-char MFRC522_Halt(void)
+char MFRC522_Halt(void)  //暂未使用
 {
     unsigned int  unLen;
     unsigned char ucComMF522Buf[MAXRLEN]; 
@@ -417,7 +418,7 @@ char MFRC522_Request(unsigned char req_code,unsigned char *pTagType)
 
 
 
-//功    能：防冲突检测读取选中卡片的卡序列号
+//功    能：防冲突检测?《寥⊙≈锌ㄆ?的卡序列号
 //参数说明: pSnr[OUT]:卡片序列号，4字节
 //返    回: 成功返回MI_OK 
 char MFRC522_Anticoll(unsigned char *pSnr)
@@ -459,7 +460,7 @@ char MFRC522_Anticoll(unsigned char *pSnr)
 //参数说明: pSnr[IN]:卡片序列号，4字节
 //返    回: 成功返回MI_OK
 /////////////////////////////////////////////////////////////////////
-char MFRC522_SelectTag(unsigned char *pSnr)
+char MFRC522_SelectTag(unsigned char *pSnr)  //暂未使用
 {
     char status;
     unsigned char i;
@@ -491,7 +492,7 @@ char MFRC522_SelectTag(unsigned char *pSnr)
 
 
 /////////////////////////////////////////////////////////////////////
-//功    能：验证卡片密码
+//功    能：验证卡片密码  暂未使用
 //参数说明: auth_mode[IN]: 密码验证模式
 //                 0x60 = 验证A密钥
 //                 0x61 = 验证B密钥 
