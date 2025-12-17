@@ -443,10 +443,10 @@ char MFRC522_Anticoll(unsigned char *pSnr)
          for (i=0; i<4; i++)
          {   
              *(pSnr+i)  = ucComMF522Buf[i];
-             snr_check ^= ucComMF522Buf[i];
+             snr_check ^= ucComMF522Buf[i];  //逐字节异或
 
          }
-         if (snr_check != ucComMF522Buf[i])
+         if (snr_check != ucComMF522Buf[i])  //BCC校验
          {   status = MI_ERR;    }
     }
     
